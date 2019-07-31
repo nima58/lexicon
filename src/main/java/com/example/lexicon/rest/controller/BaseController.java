@@ -1,14 +1,14 @@
 package com.example.lexicon.rest.controller;
 
-import com.example.lexicon.rest.service.BaluchiEnglishService;
+import com.example.lexicon.rest.service.LexiconService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BaseController {
 
-    BaluchiEnglishService service;
+    LexiconService service;
 
     @Autowired
-    BaseController(BaluchiEnglishService service) {
+    BaseController(LexiconService service) {
         this.service = service;
     }
 }

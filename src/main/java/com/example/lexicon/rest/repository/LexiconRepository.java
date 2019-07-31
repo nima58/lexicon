@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface BaluchiEnglishRepository extends CrudRepository<BaluchiEnglish, Integer> {
+public interface LexiconRepository extends CrudRepository<BaluchiEnglish, Integer> {
     List<BaluchiEnglish> findByBccStartingWith(String bcc);
     List<BaluchiEnglish> findByEngStartingWith(String eng);
     List<BaluchiEnglish> findByFaStartingWith(String fa);

@@ -2,7 +2,7 @@ package com.example.lexicon.rest.service;
 
 import com.example.lexicon.rest.domain.BaluchiEnglish;
 import com.example.lexicon.rest.exception.ResourceNotFoundException;
-import com.example.lexicon.rest.repository.BaluchiEnglishRepository;
+import com.example.lexicon.rest.repository.LexiconRepository;
 import com.example.lexicon.rest.utils.LexiconTableParameters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class BaluchiEnglishService {
+public class LexiconService {
 
-    private BaluchiEnglishRepository repository;
+    private LexiconRepository repository;
 
     @Autowired
-    BaluchiEnglishService(BaluchiEnglishRepository repository) {
+    LexiconService(LexiconRepository repository) {
         this.repository = repository;
     }
 /*

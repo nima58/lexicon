@@ -1,7 +1,7 @@
 package com.example.lexicon.rest.controller;
 
 import com.example.lexicon.rest.domain.BaluchiEnglish;
-import com.example.lexicon.rest.service.BaluchiEnglishService;
+import com.example.lexicon.rest.service.LexiconService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,7 +17,7 @@ import java.util.List;
 public class BaluchiController extends BaseController{
 
     @Autowired
-    BaluchiController(BaluchiEnglishService service) {
+    BaluchiController(LexiconService service) {
         super(service);
     }
 

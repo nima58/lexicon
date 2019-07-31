@@ -1,7 +1,7 @@
 package com.example.lexicon.rest.controller;
 
 import com.example.lexicon.rest.domain.BaluchiEnglish;
-import com.example.lexicon.rest.service.BaluchiEnglishService;
+import com.example.lexicon.rest.service.LexiconService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
 public class EnglishController extends BaseController{
     @Autowired
-    EnglishController(BaluchiEnglishService service) {
+    EnglishController(LexiconService service) {
         super(service);
     }
 
