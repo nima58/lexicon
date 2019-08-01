@@ -9,8 +9,6 @@ import java.util.List;
 @Service
 public class UrLexService extends LexService {
 
-    private LexiconRepository repository;
-
     @Autowired
     UrLexService(LexiconRepository repository) {
         super(repository);
@@ -18,12 +16,12 @@ public class UrLexService extends LexService {
 
     @Override
     public List<LexEntry> searchEntries(String str) {
-        return repository.findByUrStartingWith(str);
+        return getRepository().findByUrStartingWith(str);
     }
 
     @Override
     public List<LexEntry> searchByPos(String pos, String str) {
-        return repository.findByPosAndUrStartingWith(pos, str);
+        return getRepository().findByPosAndUrStartingWith(pos, str);
     }
 
     @Override

@@ -10,19 +10,17 @@ import java.util.List;
 @Service
 public class EngLexService extends LexService {
 
-    private LexiconRepository repository;
-
     @Autowired
     EngLexService(LexiconRepository repository){super(repository);}
 
     @Override
     public List<LexEntry> searchEntries(String str) {
-        return repository.findByEngStartingWith(str);
+        return getRepository().findByEngStartingWith(str);
     }
 
     @Override
     public List<LexEntry> searchByPos(String pos, String str) {
-        return repository.findByPosAndEngStartingWith(pos, str);
+        return getRepository().findByPosAndEngStartingWith(pos, str);
     }
 
     @Override

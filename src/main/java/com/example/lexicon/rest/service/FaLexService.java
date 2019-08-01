@@ -9,8 +9,6 @@ import java.util.List;
 @Service
 public class FaLexService extends LexService {
 
-    private LexiconRepository repository;
-
     @Autowired
     FaLexService(LexiconRepository repository) {
         super(repository);
@@ -18,12 +16,12 @@ public class FaLexService extends LexService {
 
     @Override
     public List<LexEntry> searchEntries(String str) {
-        return repository.findByFaStartingWith(str);
+        return getRepository().findByFaStartingWith(str);
     }
 
     @Override
     public List<LexEntry> searchByPos(String pos, String str) {
-        return repository.findByPosAndFaStartingWith(pos, str);
+        return getRepository().findByPosAndFaStartingWith(pos, str);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.example.lexicon.rest.controller;
 
 import com.example.lexicon.rest.domain.LexEntry;
-import com.example.lexicon.rest.service.UrLexService;
+import com.example.lexicon.rest.service.FaLexService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,18 +14,15 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
-public class UrduController extends BaseController {
-
-    private UrLexService service;
+public class FaController extends BaseController {
 
     @Autowired
-    UrduController(UrLexService service) {
+    FaController(FaLexService service) {
         super(service);
     }
 
-    @GetMapping("/words/urdu")
-    public List<LexEntry> searchByUrdu(@RequestParam(value = "word", required = false) String ur){
-        return service.searchEntries(ur);
+    @GetMapping("/words/farsi")
+    public List<LexEntry> searchByFarsi(@RequestParam(value = "word", required = false) String fa){
+        return getService().searchEntries(fa);
     }
-
 }

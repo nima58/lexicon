@@ -9,8 +9,6 @@ import java.util.List;
 @Service
 public class BccSciLexService extends LexService {
 
-    private LexiconRepository repository;
-
     @Autowired
     BccSciLexService(LexiconRepository repository) {
         super(repository);
@@ -18,12 +16,12 @@ public class BccSciLexService extends LexService {
 
     @Override
     public List<LexEntry> searchEntries(String str) {
-        return repository.findByBccLatinSciStartingWith(str);
+        return getRepository().findByBccLatinSciStartingWith(str);
     }
 
     @Override
     public List<LexEntry> searchByPos(String pos, String str) {
-        return repository.findByPosAndBccLatinSciStartingWith(pos, str);
+        return getRepository().findByPosAndBccLatinSciStartingWith(pos, str);
     }
 
     @Override

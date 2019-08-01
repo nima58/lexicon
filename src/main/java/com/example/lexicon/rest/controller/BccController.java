@@ -9,22 +9,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
-public class BaluchiController extends BaseController{
+public class BccController extends BaseController{
 
-    private BccLexService service;
-
+    //private BccLexService service;
     @Autowired
-    BaluchiController(BccLexService service) {
+    BccController(BccLexService service) {
         super(service);
     }
 
     @GetMapping("/words/baluchi")
     public List<LexEntry> searchByBaluchi(@RequestParam(value = "word", required = false) String bcc){
-        return service.searchEntries(bcc);
+        return getService().searchEntries(bcc);
     }
+
+    @GetMapping("/words/baluchi/all")
+    public List<String> getAll(){
+        List<LexEntry> all = getService().getAll();
+        if(all != null)
+            return all.stream().map(LexEntry::getBcc).collect(Collectors.toList()).subList(0, 20);
+        else{
+            System.out.println("Null encountered, add exception here");
+            return new ArrayList<>();
+        }
+    }
+
 }

@@ -17,6 +17,10 @@ public abstract class LexService implements BaseService{
     }
 
     public List<LexEntry> getAll(){
-        return null;
+        return (List<LexEntry>) repository.findAll();
+    }
+
+    public LexiconRepository getRepository() {
+        return repository;
     }
 }

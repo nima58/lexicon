@@ -9,8 +9,6 @@ import java.util.List;
 @Service
 public class PosLexService extends LexService {
 
-    private LexiconRepository repository;
-
     @Autowired
     PosLexService(LexiconRepository repository) {
         super(repository);

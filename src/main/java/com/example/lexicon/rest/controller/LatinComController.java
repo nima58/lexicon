@@ -16,8 +16,6 @@ import java.util.List;
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
 public class LatinComController extends BaseController {
 
-    private BccComLexService service;
-
     @Autowired
     LatinComController(BccComLexService service) {
         super(service);
@@ -25,6 +23,6 @@ public class LatinComController extends BaseController {
 
     @GetMapping("/words/latin-com")
     public List<LexEntry> searchByLatinCom(@RequestParam(value = "word", required = false) String com){
-        return service.searchEntries(com);
+        return getService().searchEntries(com);
     }
 }

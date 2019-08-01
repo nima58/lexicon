@@ -14,19 +14,17 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
-public class EnglishController extends BaseController{
-
-    private EngLexService service;
+public class EngController extends BaseController{
 
     @Autowired
-    EnglishController(EngLexService service) {
+    EngController(EngLexService service) {
         super(service);
     }
 
     @ApiOperation(value = "View a list of available words", response = List.class)
     @GetMapping("/words/english")
     public List<LexEntry> searchByEnglish(@RequestParam(value = "word", required = false) String eng){
-        return service.searchEntries(eng);
+        return getService().searchEntries(eng);
     }
 
     @ApiOperation(value = "View a list of available words", response = List.class)
@@ -34,6 +32,6 @@ public class EnglishController extends BaseController{
     public List<LexEntry> searchByEnglishAndPos(
             @RequestParam(value = "pos", required = false) String pos,
             @RequestParam(value = "word", required = false) String eng){
-        return service.searchByPos(pos, eng);
+        return getService().searchByPos(pos, eng);
     }
 }

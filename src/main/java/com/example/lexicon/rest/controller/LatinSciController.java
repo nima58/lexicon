@@ -16,8 +16,6 @@ import java.util.List;
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
 public class LatinSciController extends BaseController {
 
-    private BccSciLexService service;
-
     @Autowired
     LatinSciController(BccSciLexService service) {
         super(service);
@@ -25,6 +23,6 @@ public class LatinSciController extends BaseController {
 
     @GetMapping("/words/latin-sci")
     public List<LexEntry> searchByLatinSci(@RequestParam(value = "word", required = false) String sci){
-        return service.searchEntries(sci);
+        return getService().searchEntries(sci);
     }
 }
