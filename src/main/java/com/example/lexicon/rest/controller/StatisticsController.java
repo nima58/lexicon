@@ -1,6 +1,5 @@
 package com.example.lexicon.rest.controller;
 
-import com.example.lexicon.rest.service.LexService;
 import com.example.lexicon.rest.service.StatisticsService;
 import com.example.lexicon.rest.utils.Statistics;
 import io.swagger.annotations.ApiOperation;

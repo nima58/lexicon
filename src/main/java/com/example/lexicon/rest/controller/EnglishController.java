@@ -2,7 +2,6 @@ package com.example.lexicon.rest.controller;
 
 import com.example.lexicon.rest.domain.LexEntry;
 import com.example.lexicon.rest.service.EngLexService;
-import com.example.lexicon.rest.service.LexService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
