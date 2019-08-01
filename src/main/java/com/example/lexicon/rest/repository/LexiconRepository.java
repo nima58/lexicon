@@ -19,4 +19,13 @@ public interface LexiconRepository extends CrudRepository<LexEntry, Integer> {
     List<LexEntry> findByPosAndBccStartingWith(String pos, String eng);
     List<LexEntry> findById(int id);
 
+    List<LexEntry> findByPosAndBccLatinComStartingWith(String pos, String str);
+
+    List<LexEntry> findByPosAndBccLatinSciStartingWith(String pos, String str);
+
+    List<LexEntry> findByPosAndFaStartingWith(String pos, String str);
+
+    List<LexEntry> findByPosAndUrStartingWith(String pos, String str);
 }
+
+
