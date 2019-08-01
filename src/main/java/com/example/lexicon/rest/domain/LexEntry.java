@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "baluchi_english", schema = "dbo", catalog = "Baluchi_English_Lexicon")
-public class BaluchiEnglish {
+public class LexEntry {
     private int id;
     private String bcc;
     private String eng;
@@ -100,7 +100,7 @@ public class BaluchiEnglish {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        BaluchiEnglish that = (BaluchiEnglish) o;
+        LexEntry that = (LexEntry) o;
         return id == that.id &&
                 Objects.equals(bcc, that.bcc) &&
                 Objects.equals(eng, that.eng) &&

@@ -1,10 +1,18 @@
 package com.example.lexicon.rest.utils;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
 public class Statistics {
-    LexiconTableParameters lexiconTableParameters;
+    //Non null/empty
+    private int allWords;
+    private int bccWords;
+    private int bccSciWords;
+    private int bccLatinWords;
+    private int engWords;
+    private int posWords;
+    private int faWords;
+    private int urWords;
+
 
 }
