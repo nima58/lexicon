@@ -26,9 +26,8 @@ public class PosController extends BaseController {
 
     @ApiOperation(value = "View a list of available words", response = List.class)
     @GetMapping("/words/pos")
-    public List<LexEntry> searchByLangAndPos(
-            @RequestParam(value = "pos", required = false) Pos pos,
-            @RequestParam(value = "word", required = false) WritingSystem ws){
-        return getService().searchByPos(pos.getPos(), ws.getWs());
+    public List<LexEntry> searchByPos(
+            @RequestParam(value = "pos", required = false) Pos pos){
+        return ((PosLexService) getService()).searchByPos(pos.getPos());
     }
 }

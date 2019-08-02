@@ -29,6 +29,8 @@ public interface LexiconRepository extends CrudRepository<LexEntry, Integer> {
 
     List<LexEntry> findByPosAndUrStartingWith(String pos, String str);
 
+    List<LexEntry>  findByPos(String pos);
+
     //Statistics
 
     @Query(value =  "SELECT le.ur FROM LexEntry le WHERE le.ur <> 'NULL' ")
@@ -51,6 +53,8 @@ public interface LexiconRepository extends CrudRepository<LexEntry, Integer> {
 
     @Query(value =  "SELECT le.pos FROM LexEntry le WHERE le.pos <> 'NULL' ")
     List<LexEntry> getAllNotNullPos();
+
+
 }
 
 
