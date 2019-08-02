@@ -22,21 +22,14 @@ public class StatisticsService {
 
     private void manageStatistics() {
         statistics = new Statistics();
-
-        setAllwords();
-        serEnglishWords();
-        setBaluchiWords();
+        statistics.setAllWords(lexiconService.getAll().size());
+        statistics.setBccWords(lexiconService.getAllNotNullBcc().size());
+        statistics.setBccLatinWords(lexiconService.getAllNotNullLatinCom().size());
+        statistics.setBccSciWords(lexiconService.getAllNotNullLatinSci().size());
+        statistics.setEngWords(lexiconService.getAllNotNullEng().size());
+        statistics.setFaWords(lexiconService.getAllNotNullFa().size());
+        statistics.setPosWords(lexiconService.getAllNotNullPos().size());
+        statistics.setUrWords(lexiconService.getAllNotNullUr().size());
     }
 
-    private void setBaluchiWords() {
-        //statistics.setBccWords(lexiconService.searchByEnglish());
-        //statistics.gsetA(lexiconService.getAll().size());
-    }
-
-    private void serEnglishWords() {
-    }
-
-    private void setAllwords() {
-
-    }
 }

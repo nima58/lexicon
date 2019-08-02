@@ -4,15 +4,19 @@ import com.example.lexicon.rest.domain.LexEntry;
 import com.example.lexicon.rest.exception.ResourceNotFoundException;
 import com.example.lexicon.rest.repository.LexiconRepository;
 import com.example.lexicon.rest.utils.LexiconTableParameters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipFile;
 
 @Service
 public class LexiconService {
-
+    private Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private LexiconRepository repository;
 
     @Autowired
@@ -24,7 +28,8 @@ public class LexiconService {
         List<LexEntry> all = new ArrayList<>();
         Iterable<LexEntry> users = repository.findAll();
         users.forEach(all::add);
-        return all.subList(0, 10);
+        logger.info("All entries in DB: " + all.size());
+        return all;
     }
 
     public LexEntry getById(Integer id){
@@ -79,4 +84,31 @@ public class LexiconService {
         return repository.findByPosAndEngStartingWith(pos, eng);
     }
 
+    List<LexEntry> getAllNotNullFa(){
+        return repository.getAllNotNullFa();
+    }
+
+    List<LexEntry> getAllNotNullUr(){
+        return repository.getAllNotNullUr();
+    }
+
+    List<LexEntry> getAllNotNullBcc() {
+        return repository.getAllNotNullBcc();
+    }
+
+    List<LexEntry> getAllNotNullLatinCom() {
+        return repository.getAllNotNullLatinCom();
+    }
+
+    List<LexEntry> getAllNotNullLatinSci() {
+        return repository.getAllNotNullLatinSci();
+    }
+
+    List<LexEntry> getAllNotNullEng() {
+        return repository.getAllNotNullEng();
+    }
+
+    List<LexEntry> getAllNotNullPos() {
+        return repository.getAllNotNullPos();
+    }
 }
