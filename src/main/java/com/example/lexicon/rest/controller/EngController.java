@@ -2,6 +2,7 @@ package com.example.lexicon.rest.controller;
 
 import com.example.lexicon.rest.domain.LexEntry;
 import com.example.lexicon.rest.service.EngLexService;
+import com.example.lexicon.rest.utils.Pos;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,8 @@ public class EngController extends BaseController{
     @ApiOperation(value = "View a list of available words", response = List.class)
     @GetMapping("/words/english/pos")
     public List<LexEntry> searchByEnglishAndPos(
-            @RequestParam(value = "pos", required = false) String pos,
+            @RequestParam(value = "pos", required = false) Pos pos,
             @RequestParam(value = "word", required = false) String eng){
-        return getService().searchByPos(pos, eng);
+        return getService().searchByPos(pos.getPos(), eng);
     }
 }

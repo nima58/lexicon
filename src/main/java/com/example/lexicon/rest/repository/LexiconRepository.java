@@ -1,6 +1,7 @@
 package com.example.lexicon.rest.repository;
 
 import com.example.lexicon.rest.domain.LexEntry;
+import org.hibernate.annotations.Parameter;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -29,6 +30,7 @@ public interface LexiconRepository extends CrudRepository<LexEntry, Integer> {
     List<LexEntry> findByPosAndUrStartingWith(String pos, String str);
 
     //Statistics
+
     @Query(value =  "SELECT le.ur FROM LexEntry le WHERE le.ur <> 'NULL' ")
     List<LexEntry> getAllNotNullUr();
 
