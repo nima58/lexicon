@@ -43,6 +43,17 @@ public class BccController extends BaseController{
     }
 
     @ApiOperation(value = "View a list of available words", response = List.class)
+    @GetMapping("/words/baluchi/autocomp")
+    public List<String> searchByBccAutocomp(@RequestParam(value = "word", required = false) String bcc){
+        if (bcc.length()> 2) {
+            List<LexEntry> lexEntries = getService().searchEntries(bcc);
+            return lexEntries.stream().map(LexEntry::getBcc).collect(Collectors.toList());
+        } else {
+            return new ArrayList<>();
+        }
+    }
+
+    @ApiOperation(value = "View a list of available words", response = List.class)
     @GetMapping("/words/baluchi/pos")
     public List<LexEntry> searchByBaluchiAndPos(
             @RequestParam(value = "pos", required = false) Pos pos,

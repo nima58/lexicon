@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @CrossOrigin
 @RestController
 @Api(value="onlinelexicon", description="Operations pertaining to names in Online lexicon")
@@ -26,6 +29,17 @@ public class EngController extends BaseController{
     @GetMapping("/words/english")
     public List<LexEntry> searchByEnglish(@RequestParam(value = "word", required = false) String eng){
         return getService().searchEntries(eng);
+    }
+
+    @ApiOperation(value = "View a list of available words", response = List.class)
+    @GetMapping("/words/english/autocomp")
+    public List<String> searchByEnglishAutocomp(@RequestParam(value = "word", required = false) String eng){
+        if (eng.length()> 2) {
+            List<LexEntry> lexEntries = getService().searchEntries(eng);
+            return lexEntries.stream().map(LexEntry::getEng).collect(Collectors.toList());
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     @ApiOperation(value = "View a list of available words", response = List.class)
